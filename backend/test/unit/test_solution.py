@@ -10,7 +10,7 @@ def test_id1_get_recipe():
     mockedDAO.get_readiness_of_recipes = [obj]
     diet = "vegan"
     take_best = False
-    uc = RecipeController(dao=mockedDAO)
+    uc = RecipeController(items_dao=mockedDAO)
     
     assert uc.get_recipe(diet, take_best) == None
 
@@ -21,7 +21,7 @@ def test_id2_get_recipe():
     mockedDAO.get_readiness_of_recipes = [obj]
     diet = "vegan"
     take_best = True
-    uc = RecipeController(dao=mockedDAO)
+    uc = RecipeController(items_dao=mockedDAO)
     
     assert uc.get_recipe(diet, take_best) == None
 
@@ -32,7 +32,7 @@ def test_id3_get_recipe():
     mockedDAO.get_readiness_of_recipes = [obj]
     diet = "vegan"
     take_best = False
-    uc = RecipeController(dao=mockedDAO)
+    uc = RecipeController(items_dao=mockedDAO)
     
     assert uc.get_recipe(diet, take_best) == "Banana Bread"
 
@@ -43,7 +43,7 @@ def test_id4_get_recipe():
     mockedDAO.get_readiness_of_recipes = [obj]
     diet = "vegan"
     take_best = True
-    uc = RecipeController(dao=mockedDAO)
+    uc = RecipeController(items_dao=mockedDAO)
     
     assert uc.get_recipe(diet, take_best) == "Banana Bread"
 
@@ -55,7 +55,7 @@ def test_id5_get_recipe():
     diet = "normal"
     take_best = False
     # I should mock the random with patch to number 1 here, but no time :(
-    uc = RecipeController(dao=mockedDAO)
+    uc = RecipeController(items_dao=mockedDAO)
     
     assert uc.get_recipe(diet, take_best) == "Sour Bread"
 
@@ -67,6 +67,6 @@ def test_id5_get_recipe():
     diet = "normal"
     take_best = True
     # I should mock the random to number 2 here, but no time :(
-    uc = RecipeController(dao=mockedDAO)
+    uc = RecipeController(items_dao=mockedDAO)
     
     assert uc.get_recipe(diet, take_best) == "Banana Bread"
